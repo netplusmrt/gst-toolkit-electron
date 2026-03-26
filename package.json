@@ -1,0 +1,58 @@
+{
+  "name": "gst-toolkit",
+  "version": "25.9.27",
+  "description": "Accountancy App",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "jest",
+    "copy:angular-build": "cp -r ../GSTToolkit.ng16/dist/gst-toolkit gst-toolkit",
+    "copy:electron-build": "npx copyfiles -u 3 ../GSTToolkit.ng16/dist-electron/**/*.js src",
+    "copy": "npm run copy:angular-build && npm run copy:electron-build",
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/netplusmrt/gst-toolkit-electron.git"
+  },
+  "publish": {
+    "provider": "github",
+    "releaseType": "release"
+  },
+  "build": {
+    "appId": "com.netplusmrt.gsttoolkit",
+    "productName": "GSTToolkit",
+    "icon": "assets/icon.ico",
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico",
+      "artifactName": "GSTToolkit-Setup-${version}.exe"
+    },
+    "directories": {
+      "output": "dist"
+    },
+    "publish": {
+      "provider": "github",
+      "releaseType": "release"
+    }
+  },
+  "author": "GSTToolkit",
+  "license": "ISC",
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "electron": "^41.0.4",
+    "electron-builder": "^26.8.1",
+    "electron-debug": "^4.1.0",
+    "jest": "^29.7.0"
+  },
+  "bugs": {
+    "url": "https://github.com/netplusmrt/gst-toolkit-electron/issues"
+  },
+  "homepage": "https://github.com/netplusmrt/gst-toolkit-electron#readme",
+  "dependencies": {
+    "better-sqlite3": "^12.8.0",
+    "electron-log": "^5.4.3",
+    "electron-updater": "^6.8.3",
+    "tslib": "^2.8.1"
+  }
+}
