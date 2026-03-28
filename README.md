@@ -1,17 +1,16 @@
 # GSTToolkit
 
+## Run Electron
+1. Copy build output
+	npm run copy
+
+2. npm run start
+
 ## Build Electron
 1. Copy build output
 	npm run copy
 
-2. replace content in main.js
-	const startUrl = url.format({
-		pathname: path.join(__dirname, `../gst-toolkit/index.html`),
-		protocol: 'file:',
-		slashes: true
-	});
-
-3. npm run start 
+2. npm run build 
 
 
 ## Deployment on Electron
@@ -25,15 +24,8 @@
 3. Copy build output
 	npm run copy
 
-4. replace content in main.js
-	const startUrl = url.format({
-		pathname: path.join(__dirname, `../gst-toolkit/index.html`),
-		protocol: 'file:',
-		slashes: true
-	});
-
 4. npx electron-builder --publish always
 	it will build and publish the release to the GITHUB
 	
 5. Release can be uploaded manualy from
-	G:\Apps\GSTToolkit\gst-toolkit-electron\dist
+	G:\Apps\GSTToolkit\gst-toolkit-electron\build

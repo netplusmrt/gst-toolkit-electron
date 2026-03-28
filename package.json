@@ -1,14 +1,15 @@
 {
   "name": "gst-toolkit",
-  "version": "25.9.27",
-  "description": "Accountancy App",
-  "main": "src/main.js",
+  "version": "25.9.28",
+  "description": "GST Toolkit is a powerful application designed to assist users in managing and optimizing their GST-related tasks. It provides a comprehensive set of features to streamline the process of filing GST returns, tracking expenses, and generating reports. With an intuitive interface and robust functionality, GST Toolkit aims to simplify the complexities of GST compliance and help users stay organized and efficient in their financial management.",
+  "main": "dist-electron/main.js",
   "scripts": {
     "test": "jest",
     "copy:angular-build": "cp -r ../GSTToolkit.ng16/dist/gst-toolkit gst-toolkit",
-    "copy:electron-build": "npx copyfiles -u 3 ../GSTToolkit.ng16/dist-electron/**/*.js src",
+    "copy:electron-build": "npx copyfiles -u 3 ../GSTToolkit.ng16/dist-electron/**/*.js build",
     "copy": "npm run copy:angular-build && npm run copy:electron-build",
     "start": "electron .",
+    "build:electron": "tsc -p tsconfig.electron.json",
     "build": "electron-builder"
   },
   "repository": {
@@ -26,7 +27,7 @@
     "win": {
       "target": "nsis",
       "icon": "assets/icon.ico",
-      "artifactName": "GSTToolkit-Setup-${version}.exe"
+      "artifactName": "GSTToolkit-Setup-${arch}-${version}.exe"
     },
     "directories": {
       "output": "dist"
@@ -43,7 +44,8 @@
     "electron": "^41.0.4",
     "electron-builder": "^26.8.1",
     "electron-debug": "^4.1.0",
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "typescript": "^6.0.2"
   },
   "bugs": {
     "url": "https://github.com/netplusmrt/gst-toolkit-electron/issues"

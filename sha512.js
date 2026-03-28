@@ -9,6 +9,6 @@ function getSHA512(filePath) {
 }
 
 // Change this to your actual output file
-const filePath = "out/make/squirrel.windows/x64/AccountancyApp-installer.exe";
+const filePath = "out/make/squirrel.windows/x64/GSTToolkit-installer.exe";
 
 console.log(`SHA-512: ${getSHA512(filePath)}`);
