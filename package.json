@@ -1,16 +1,17 @@
 {
   "name": "gst-toolkit",
-  "version": "25.9.28",
+  "version": "25.9.33",
   "description": "GST Toolkit is a powerful application designed to assist users in managing and optimizing their GST-related tasks. It provides a comprehensive set of features to streamline the process of filing GST returns, tracking expenses, and generating reports. With an intuitive interface and robust functionality, GST Toolkit aims to simplify the complexities of GST compliance and help users stay organized and efficient in their financial management.",
   "main": "dist-electron/main.js",
   "scripts": {
     "test": "jest",
-    "copy:angular-build": "cp -r ../GSTToolkit.ng16/dist/gst-toolkit gst-toolkit",
-    "copy:electron-build": "npx copyfiles -u 3 ../GSTToolkit.ng16/dist-electron/**/*.js build",
-    "copy": "npm run copy:angular-build && npm run copy:electron-build",
-    "start": "electron .",
-    "build:electron": "tsc -p tsconfig.electron.json",
-    "build": "electron-builder"
+    "clean": "rimraf dist",
+    "clean:gst-toolkit": "if exist gst-toolkit rmdir /s /q gst-toolkit && mkdir gst-toolkit",
+    "copy:angular-build": "npx copyfiles -u 4 ../GSTToolkit.ng16/dist/gst-toolkit/**/* gst-toolkit",
+    "copy:electron-build": "npx copyfiles -u 3 ../GSTToolkit.ng16/dist-electron/**/*.js dist-electron",
+    "copy": "npm run clean:gst-toolkit && npm run copy:angular-build && npm run copy:electron-build",
+    "publish": "npm run clean && npx electron-builder --publish always",
+    "build": "npm run clean && npm run copy && electron-builder"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../GSTToolkit-electron"
+		}
+	],
+	"settings": {
+		"angular.enable-strict-mode-prompt": false
+	}
+}

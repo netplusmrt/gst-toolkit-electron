@@ -45,7 +45,9 @@ dist/
 dist-electron/
 build/
 gst-toolkit/
+dist-angular/
 src/
+electron/
 .vscode/
 
 # Snowpack dependency directory (https://snowpack.dev/)
@@ -140,5 +142,3 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-
-gst-toolkit/

@@ -1,5 +1,7 @@
 # GSTToolkit
 
+npm install wait-on --save-dev
+
 ## Run Electron
 1. Copy build output
 	npm run copy
